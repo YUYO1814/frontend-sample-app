@@ -13,10 +13,16 @@ const CalendarPage = () => {
     '2024-10-26': 'Presentación mensual de resultados 12:00 pm'
   });
 
+  // Function to handle hover over dates and extract event info
+  const getEventInfo = (date) => {
+    const dateString = date.toISOString().split('T')[0];
+    return events[dateString] ? events[dateString] : null;
+  };
+
   return (
-    <div className="calendar-page">
+    <div className="calendar-page" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px', minHeight: '100vh' }}>
       <h2>Calendario de Reuniones</h2>
-      <div className="add-event-container" style={{ marginBottom: '20px', textAlign: 'right' }}>
+      <div className="add-event-container" style={{ marginBottom: '20px', textAlign: 'right', width: '100%', display: 'flex', justifyContent: 'flex-end' }}>
         <button className="add-event-button styled-button">Agregar Evento</button>
       </div>
       <Calendar
@@ -26,10 +32,12 @@ const CalendarPage = () => {
           const dateString = date.toISOString().split('T')[0];
           return events[dateString] ? 'event-day' : null;
         }}
+        onClickDay={(value) => setDate(value)}
+        style={{ width: '70%', maxWidth: '800px' }}
       />
-      {events[date.toISOString().split('T')[0]] && (
-        <div className="event-tooltip">
-          <p>{events[date.toISOString().split('T')[0]]}</p>
+      {getEventInfo(date) && (
+        <div className="event-tooltip" style={{ marginTop: '20px', backgroundColor: '#333', color: 'white', padding: '10px', borderRadius: '4px' }}>
+          <p>{getEventInfo(date)}</p>
         </div>
       )}
     </div>

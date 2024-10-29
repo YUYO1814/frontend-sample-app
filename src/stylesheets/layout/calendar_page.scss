@@ -1,14 +1,26 @@
+.event-day {
+  background-color: #4CAF50 !important;  /* Color para resaltar días con eventos */
+  color: white !important;
+}
+
 .styled-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .styled-button:hover {
-    background-color: #45a049;
-  }
-  
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.styled-button:hover {
+  background-color: #45a049;
+}
+
+.event-tooltip {
+  margin-top: 20px;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+}
